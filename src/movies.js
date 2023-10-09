@@ -39,7 +39,12 @@ function dramaMoviesScore(moviesArray) {
 
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
 function orderByYear(moviesArray) {
-  const newArray = moviesArray.sort(function (a, b) {return a.year - b.year})
+  const newArray = moviesArray.sort(function (a, b) {
+    if (a.year === b.year) {
+      return a.title.localeCompare(b.title)
+    }
+    return a.year - b.year
+  })
   return JSON.parse(JSON.stringify(newArray))
 }
 
@@ -50,11 +55,6 @@ function orderAlphabetically(moviesArray) {
     titles.push(movie.title)
   }
   return titles.sort().slice(0, 20)
-
-  // alternativa de filtrar por año
-  // ordenar los que el count sea > 1 para un año en concreto
-  // generar un nuevo array de resultados ordenador por año
-
 }
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
