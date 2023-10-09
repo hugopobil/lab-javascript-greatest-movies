@@ -2037,7 +2037,6 @@ function dramaMoviesScore(moviesArray) {
   let count = moviesArray.length
   if (count === 0) {return 0}
 
-  // filtrar por los que contienen drama
   const newArray = moviesArray.filter((movie) => movie.genre.includes("Drama"))
   return scoresAverage(newArray)
 }
@@ -2050,7 +2049,6 @@ function orderByYear(moviesArray) {
 
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
 function orderAlphabetically(moviesArray) {
-
   let titles = []
   for (let movie of moviesArray) {
     titles.push(movie.title)
@@ -2063,11 +2061,8 @@ function orderAlphabetically(moviesArray) {
 
 }
 
-console.log(orderAlphabetically(movies_js))
-
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 function turnHoursToMinutes(moviesArray) {
-
   return moviesArray.map((movie) => {
 
     if (movie.duration.split(" ").length > 1) {
@@ -2100,8 +2095,8 @@ function bestYearAvg(moviesArray) {
   const years = []
   for (let movie of moviesArray) {years.push(String(movie.year))}
 
-  const years_clean =
-      years.filter((valor, indice, array) => array.indexOf(valor) === indice)
+  const years_clean = years.filter((valor, indice, array) =>
+      array.indexOf(valor) === indice)
 
   const results = {}
   for (let year of years_clean) {
